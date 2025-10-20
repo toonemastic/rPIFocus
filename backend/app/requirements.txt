@@ -1,5 +1,5 @@
 imutils
-opencv-contrib-python==4.1.0.25
-Flask==1.1.2
+opencv-contrib-python==4.5.5.62
+Flask>=2.2.2
 requests==2.24.0
-supervisor==4.2.1
+supervisor==4.3.0
