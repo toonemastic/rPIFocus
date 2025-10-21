@@ -26,7 +26,7 @@ RUN python3 -m pip install --upgrade pip
 COPY ./app/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
-RUN python3 -m pip install --extra-index-url https://google-coral.github.io/py-repo/ pycoral~=2.0
+RUN python3 -m pip install --extra-index-url https://google-coral.github.io/py-repo/ pycoral
 
 COPY ./edgetpu_runtime /tmp/edgetpu_runtime
 RUN cd /tmp/edgetpu_runtime && ./install.sh
