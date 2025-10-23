@@ -16,7 +16,7 @@ RUN apt update
 RUN apt install apt-utils 
 RUN apt full-upgrade
 RUN apt install -y --no-install-recommends wget git python3-dev python3-pip python3-setuptools python3-wheel \
-    python3-numpy python3-zmq libhdf5-dev libhdf5-serial-dev libhdf5-103 libqt5gui5 libqt5webkit5 libqt5test5 \
+    python3-numpy libhdf5-dev libhdf5-serial-dev libhdf5-103 libqt5gui5 libqt5webkit5 libqt5test5 \
     python3-pyqt5 python3-pil build-essential feh pkg-config libjpeg-dev zlib1g-dev libssl-dev libffi-dev \
     libraspberrypi0 libraspberrypi-dev libraspberrypi-bin libfreetype6-dev libxml2  libopenjp2-7 libatlas-base-dev \
     libopenexr-dev libilmbase25 libqt5gui5 libqt5test5 libavformat-dev libswscale-dev libavcodec-dev libv4l-dev libgtk-3-0 unzip
