@@ -23,6 +23,8 @@ RUN apt install -y --no-install-recommends wget git python3-dev python3-pip pyth
 
 RUN python3 -m pip install --upgrade pip
 
+RUN python3 -m pip install pyzmq==21.0.0
+
 COPY ./app/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
