@@ -135,7 +135,7 @@ Would you like to enable the maximum operating frequency for your Coral USB devi
 EOM
 
 #read USE_MAX_FREQ
-USE_MAX_FREQ=N
+USE_MAX_FREQ=Y
 case "${USE_MAX_FREQ}" in
   [yY])
     info "Using the maximum operating frequency for Coral USB devices."
