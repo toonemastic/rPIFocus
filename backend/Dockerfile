@@ -1,4 +1,5 @@
-FROM waltplatform/rpi-buster
+FROM balenalib/raspberrypi3-debian:buster
+#FROM waltplatform/rpi-buster
 
 ARG MAYOR_REVISION
 ARG MINOR_REVISION
@@ -12,7 +13,7 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
-RUN sed -i s'/mirrordirector.raspbian.org/raspbian.raspberrypi.org/g' /etc/apt/sources.list
+#RUN sed -i s'/mirrordirector.raspbian.org/raspbian.raspberrypi.org/g' /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN apt --allow-releaseinfo-change update -y
 RUN apt install -y python3-dev python3-pip python3-setuptools python3-wheel python3-numpy \

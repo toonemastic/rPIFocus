@@ -1,4 +1,5 @@
-FROM waltplatform/rpi-buster
+FROM balenalib/raspberrypi3-debian:buster
+#FROM waltplatform/rpi-buster
 
 ARG MAYOR_REVISION
 ARG MINOR_REVISION
@@ -13,7 +14,7 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
 RUN apt --allow-releaseinfo-change update -y
-RUN apt install curl -y
+#RUN apt install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
 RUN apt install nodejs
 

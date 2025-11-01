@@ -1,4 +1,5 @@
-FROM waltplatform/rpi-buster
+FROM balenalib/raspberrypi3-debian:buster
+#FROM waltplatform/rpi-buster
 
 ARG MAYOR_REVISION
 ARG MINOR_REVISION
@@ -12,7 +13,7 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
-RUN sed -i s'/mirrordirector.raspbian.org/raspbian.raspberrypi.org/g' /etc/apt/sources.list
+#RUN sed -i s'/mirrordirector.raspbian.org/raspbian.raspberrypi.org/g' /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN apt --allow-releaseinfo-change update -y
 RUN apt install -y --no-install-recommends wget git python3-dev python3-pip python3-setuptools python3-wheel \
@@ -26,7 +27,7 @@ RUN python3 -m pip install --upgrade pip
 COPY ./app/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
-RUN apt install curl -y
+#RUN apt install curl -y
 RUN echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 RUN sudo apt update
