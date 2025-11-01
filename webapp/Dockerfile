@@ -12,7 +12,8 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vcs-url="https://github.com/lemariva/rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
-
+    
+RUN echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" > /etc/apt/sources.list
 RUN apt --allow-releaseinfo-change update -y
 #RUN apt install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -

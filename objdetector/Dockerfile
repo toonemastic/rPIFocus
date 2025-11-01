@@ -13,8 +13,8 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
+RUN echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" > /etc/apt/sources.list
 #RUN sed -i s'/mirrordirector.raspbian.org/raspbian.raspberrypi.org/g' /etc/apt/sources.list
-RUN cat /etc/apt/sources.list
 RUN apt --allow-releaseinfo-change update -y
 RUN apt install -y --no-install-recommends wget git python3-dev python3-pip python3-setuptools python3-wheel \
     python3-numpy python3-zmq libhdf5-dev libhdf5-serial-dev libhdf5-103 libqtgui4 libqtwebkit4 libqt4-test \
