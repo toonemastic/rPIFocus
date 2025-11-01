@@ -1,5 +1,4 @@
-FROM balenalib/raspberrypi3-debian:buster
-RUN [ "cross-build-start" ]
+FROM waltplatform/rpi-buster
 
 ARG MAYOR_REVISION
 ARG MINOR_REVISION
@@ -13,9 +12,10 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - \
-    && apt-get update \
-    && apt install nodejs
+RUN apt --allow-releaseinfo-change update -y
+RUN apt install curl -y
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+RUN apt install nodejs
 
 RUN mkdir -p /root/webapp/
 WORKDIR /root/webapp
@@ -33,5 +33,4 @@ EXPOSE 4200
 #set stop signal
 STOPSIGNAL SIGTERM
 
-RUN [ "cross-build-end" ]
 
