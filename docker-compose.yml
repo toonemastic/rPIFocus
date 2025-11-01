@@ -2,8 +2,8 @@ version: '3'
 services:
 
   webapp:
-    container_name: webapp
     image: toone/rpifocus-webapp:1.0.2
+    container_name: webapp
     restart: unless-stopped
     ports:
       - 4200:4200
