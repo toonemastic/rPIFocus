@@ -96,7 +96,7 @@ services:
       - rpifocus
 
   redis:
-    image: redis
+    image: redis:5.0.7-buster
     restart: unless-stopped
     container_name: redis
     expose:
