@@ -24,7 +24,7 @@ services:
     privileged: true
     environment:
       - LD_LIBRARY_PATH=/opt/vc/lib
-      - HOST_M5STACK=192.168.178.71
+      - HOST_M5STACK=192.168.1.36
       - HOST_OBJ_DETECTOR=obj-detector
       - PORT_OBJ_DETECTOR=8010
       - HOST_PHOTO_SERVICE=http://photo-service:8005
