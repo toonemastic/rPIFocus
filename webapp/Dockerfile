@@ -1,5 +1,4 @@
-FROM balenalib/raspberrypi3-debian:buster
-RUN [ "cross-build-start" ]
+FROM balenalib/raspberrypi4-64-debian:bullseye
 
 ARG MAYOR_REVISION
 ARG MINOR_REVISION
@@ -13,15 +12,18 @@ LABEL org.label-schema.name="rPIFocus" \
     org.label-schema.vendor="LeMaRiva|Tech info@lemariva.com" \
     org.label-schema.version="${MAYOR_REVISION}.${MINOR_REVISION}.${BUILD_ID}"
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - \
-    && apt-get update \
-    && apt install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+RUN apt update
+RUN apt install apt-utils 
+RUN apt full-upgrade
+RUN apt install nodejs
 
 RUN mkdir -p /root/webapp/
 WORKDIR /root/webapp
 
 COPY ./app /root/webapp
 RUN npm install
+RUN npm audit fix
 
 RUN ln -s /root/webapp/node_modules/.bin/ng /usr/bin/ng
 RUN ng build
@@ -32,6 +34,3 @@ EXPOSE 4200
 
 #set stop signal
 STOPSIGNAL SIGTERM
-
-RUN [ "cross-build-end" ]
-
