@@ -2,9 +2,8 @@ version: '3'
 services:
 
   webapp:
-    #image: gcr.io/core-iot-sensors/rpifocus-webapp:1.0.0
-    image: lemariva/rpifocus-webapp:1.0.0
     container_name: webapp
+    image: toone/rpifocus-webapp:1.0.2
     restart: unless-stopped
     ports:
       - 4200:4200
@@ -17,8 +16,7 @@ services:
       - rpifocus
 
   backend:
-    #image: gcr.io/core-iot-sensors/rpifocus-backend:1.0.0
-    image: lemariva/rpifocus-backend:1.0.0
+    image: toone/rpifocus-backend:1.0.2
     container_name: backend
     restart: unless-stopped
     privileged: true
@@ -48,8 +46,7 @@ services:
       - rpifocus
 
   obj-detector:
-    #image: gcr.io/core-iot-sensors/rpifocus-objdetector:1.0.0
-    image: lemariva/rpifocus-objdetector:1.0.0
+    image: toone/rpifocus-objdetector:1.0.2
     container_name: objdetector
     restart: unless-stopped
     privileged: true
@@ -67,8 +64,7 @@ services:
       - rpifocus
 
   photo-service:
-    #image: gcr.io/core-iot-sensors/rpifocus-photoservice:1.0.0
-    image: lemariva/rpifocus-photoservice:1.0.0
+    image: toone/rpifocus-photoservice:1.0.2
     container_name: photoservice
     restart: unless-stopped
     privileged: true
@@ -96,7 +92,7 @@ services:
       - rpifocus
 
   redis:
-    image: redis:5.0.7-buster
+    image: redis
     restart: unless-stopped
     container_name: redis
     expose:
